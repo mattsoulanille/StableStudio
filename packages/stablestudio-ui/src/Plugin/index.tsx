@@ -2,6 +2,7 @@ import * as StableStudio from "@stability/stablestudio-plugin";
 import * as StableStudioPluginExample from "@stability/stablestudio-plugin-example";
 import * as StableStudioPluginStability from "@stability/stablestudio-plugin-stability";
 import * as StableStudioPluginWebUI from "@stability/stablestudio-plugin-webui";
+import * as StableStudioPluginWebGPU from "@stability/stablestudio-plugin-webgpu";
 
 import { Environment } from "~/Environment";
 import { Generation } from "~/Generation";
@@ -118,6 +119,8 @@ namespace State {
         ? StableStudioPluginExample
         : Environment.get("USE_WEBUI_PLUGIN") === "true"
         ? StableStudioPluginWebUI
+        : Environment.get("USE_WEBGPU_PLUGIN") === "true"
+        ? StableStudioPluginWebGPU
         : StableStudioPluginStability;
 
     return {
